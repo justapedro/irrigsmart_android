@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">IrrigSmart</string>
+    <string name="titulo_form_cadastro">Cadastre-se</string>
+    <string name="titulo_form_login">Fazer Login</string>
+    <string name="hint_email">E-mail</string>
+    <string name="hint_senha">Senha</string>
+    <string name="btn_cadastrar">Cadastrar</string>
+    <string name="btn_entrar">Entrar</string>
+    <string name="texto_alt_cadastro">Ainda não tem uma conta? Cadastre-se</string>
+    <string name="botao_deslogar">Deslogar</string>
+</resources>
