@@ -32,6 +32,22 @@
         android:layout_marginTop="20dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
+        android:hint="@string/hint_nome"
+        android:inputType="textPersonName"
+        android:textColorHint="@color/black"
+        android:textColor="@color/black"
+        android:background="@color/white"
+        android:padding="15dp"
+        android:maxLines="1"
+        android:textSize="20sp"
+        android:id="@+id/edit_nome" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:hint="@string/hint_email"
         android:inputType="textEmailAddress"
         android:textColorHint="@color/black"

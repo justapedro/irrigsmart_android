@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".view.formprincipal.FormPrincipal">
 
     <Button
@@ -15,7 +16,43 @@
         android:layout_marginEnd="8dp"
         android:background="@color/white"
         android:textSize="20sp"
-        android:padding="15dp"
-        android:onClick="deslogar"/>
+        android:padding="15dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Logado como Pedro"
+        android:id="@+id/textodados"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:padding="15dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Umidade"
+        android:id="@+id/textoumidade"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@color/white"
+        android:textSize="20sp"
+        android:padding="15dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nível"
+        android:id="@+id/textonivel"
+        android:layout_marginTop="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@color/white"
+        android:textSize="20sp"
+        android:padding="15dp" />
 
 </LinearLayout>

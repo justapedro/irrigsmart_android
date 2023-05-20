@@ -2,6 +2,7 @@ package br.com.irrigsmart.manager.view.formcadastro
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import br.com.irrigsmart.manager.R
 import br.com.irrigsmart.manager.databinding.ActivityFormCadastroBinding
 import com.google.android.material.snackbar.Snackbar
@@ -10,11 +11,13 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.FirebaseAuthUserCollisionException
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException
+import com.google.firebase.firestore.FirebaseFirestore
 
 class FormCadastro : AppCompatActivity() {
 
     private lateinit var binding: ActivityFormCadastroBinding
     private val auth = FirebaseAuth.getInstance()
+    private val db = FirebaseFirestore.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,23 +26,29 @@ class FormCadastro : AppCompatActivity() {
 
         binding.btncadastrar.setOnClickListener {view ->
 
+            val nome = binding.editNome.text.toString()
             val email = binding.editEmail.text.toString()
             val senha = binding.editEmail.text.toString()
 
-            if (email.isEmpty() || senha.isEmpty()) {
+            if (email.isEmpty() || senha.isEmpty() || nome.isEmpty()) {
                 val snackbar = Snackbar.make(view,"Preencha todos os campos", Snackbar.LENGTH_LONG)
                 snackbar.show()
             } else {
                 auth.createUserWithEmailAndPassword(email, senha).addOnCompleteListener {cadastro ->
                     if (cadastro.isSuccessful) {
-                        val snackbar = Snackbar.make(
-                            view,
-                            "Cadastro realizado com sucesso",
-                            Snackbar.LENGTH_LONG
+
+                        val usuarioMap = hashMapOf(
+                            "nome" to nome
                         )
-                        snackbar.show()
-                        binding.editEmail.setText("")
-                        binding.editSenha.setText("")
+
+                        db.collection("0").document(FirebaseAuth.getInstance().uid.toString())
+                            .set(usuarioMap).addOnSuccessListener {
+                                Log.d("db", "Dados gravados com sucesso!")
+                            }.addOnFailureListener {
+                                Log.d("db", "Erro ao gravar dados!".plus(it))
+                            }
+
+                        finish()
                     }
                 }.addOnFailureListener() {erro ->
                     val mensagemErro = when(erro){
