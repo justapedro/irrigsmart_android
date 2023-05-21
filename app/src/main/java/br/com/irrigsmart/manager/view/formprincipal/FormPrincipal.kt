@@ -27,6 +27,11 @@ class FormPrincipal : AppCompatActivity() {
             } else {
                 if (documento != null && documento.exists()) {
                     binding.textodados.text = "Logado como ".plus(documento.getString("nome").plus("!"))
+                    binding.progressBarUmidade.progress = documento.getLong("umidade")!!.toInt()
+                    binding.textViewProgressUmidade.text = documento.getLong("umidade").toString().plus("%")
+                    val cheio = documento.getLong("reservatorio")!!.toInt() > 300
+                    binding.progressBarReservatorio.progress = if (cheio) 100 else 10
+                    binding.textViewProgressReservatorio.text = if (cheio) "Cheio" else "Vazio"
                     binding.textoumidade.text = "Umidade: ".plus(documento.getLong("umidade").toString().plus("%"))
                     binding.textonivel.text = "Reservatório: ".plus(documento.getLong("reservatorio").toString())
                 }

@@ -11,7 +11,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/light_gray"
     tools:context=".view.formcadastro.FormCadastro">
 
     <TextView
@@ -22,7 +21,6 @@
         android:layout_gravity="center"
         android:layout_marginStart="8dp"
         android:text="@string/titulo_form_cadastro"
-        android:textColor="@color/black"
         android:textStyle="bold"
         android:textSize="25sp" />
 
@@ -36,7 +34,7 @@
         android:inputType="textPersonName"
         android:textColorHint="@color/black"
         android:textColor="@color/black"
-        android:background="@color/white"
+        android:background="@drawable/round_bg"
         android:padding="15dp"
         android:maxLines="1"
         android:textSize="20sp"
@@ -52,7 +50,7 @@
         android:inputType="textEmailAddress"
         android:textColorHint="@color/black"
         android:textColor="@color/black"
-        android:background="@color/white"
+        android:background="@drawable/round_bg"
         android:padding="15dp"
         android:maxLines="1"
         android:textSize="20sp"
@@ -68,7 +66,7 @@
         android:inputType="textPassword"
         android:textColorHint="@color/black"
         android:textColor="@color/black"
-        android:background="@color/white"
+        android:background="@drawable/round_bg"
         android:padding="15dp"
         android:maxLines="1"
         android:textSize="20sp"
@@ -85,7 +83,7 @@
         android:textColor="@color/white"
         android:textStyle="bold"
         android:background="@color/purple_500"
-        android:padding="15dp"
+        android:padding="10dp"
         android:textSize="20sp" />
 
 

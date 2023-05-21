@@ -7,6 +7,7 @@ import br.com.irrigsmart.manager.R
 import br.com.irrigsmart.manager.databinding.ActivityFormLoginBinding
 import br.com.irrigsmart.manager.view.formcadastro.FormCadastro
 import br.com.irrigsmart.manager.view.formprincipal.FormPrincipal
+import br.com.irrigsmart.manager.view.formrecuperarsenha.FormRecuperar
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
@@ -45,8 +46,13 @@ class FormLogin : AppCompatActivity() {
             }
         }
 
-        binding.textViewAltCadastro.setOnClickListener {
+        binding.btncadastrar.setOnClickListener {
             val intent = Intent(this, FormCadastro::class.java)
+            startActivity(intent)
+        }
+
+        binding.txtrecuperarsenha.setOnClickListener {
+            val intent = Intent(this, FormRecuperar::class.java)
             startActivity(intent)
         }
     }
@@ -54,6 +60,7 @@ class FormLogin : AppCompatActivity() {
     private fun navegarTelaPrincipal(){
         val intent = Intent(this, FormPrincipal::class.java)
         startActivity(intent)
+        finish()
     }
 
     override fun onStart() {

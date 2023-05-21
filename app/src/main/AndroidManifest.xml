@@ -16,6 +16,9 @@
         android:theme="@style/Theme.IrrigSmart"
         tools:targetApi="31">
         <activity
+            android:name=".view.formrecuperarsenha.FormRecuperar"
+            android:exported="false" />
+        <activity
             android:name=".view.formprincipal.FormPrincipal"
             android:exported="false" />
         <activity
@@ -23,7 +26,8 @@
             android:exported="false" />
         <activity
             android:name=".view.formlogin.FormLogin"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
