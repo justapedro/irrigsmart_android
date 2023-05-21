@@ -20,22 +20,22 @@ class FormRecuperar : AppCompatActivity() {
 
         binding.btnrecuperar.setOnClickListener() {
             if (binding.editEmail.text.toString().isEmpty()) {
-                binding.editEmail.error = "Preencha o campo!"
+                binding.editEmail.error = getString(R.string.preencha_campo)
                 binding.editEmail.requestFocus()
             } else {
                 auth.sendPasswordResetEmail(binding.editEmail.text.toString())
                     .addOnCompleteListener { task ->
                         val dialogo = AlertDialog.Builder(this)
                         if (task.isSuccessful) {
-                            dialogo.setTitle("Recuperação de senha")
-                            dialogo.setMessage("E-mail enviado com sucesso!")
+                            dialogo.setTitle(getString(R.string.recuperar_senha))
+                            dialogo.setMessage(getString(R.string.recuperar_enviado))
                             dialogo.setNeutralButton("OK") { dialog, which ->
                                 finish()
                             }
                             dialogo.show()
                         } else {
-                            dialogo.setTitle("Recuperação de senha")
-                            dialogo.setMessage("Ocorreu um erro ao enviar o e-mail!")
+                            dialogo.setTitle(getString(R.string.recuperar_senha))
+                            dialogo.setMessage(getString(R.string.recuperar_erro))
                             dialogo.setNeutralButton("OK") { dialog, which ->
                                 binding.editEmail.text = null
                                 binding.editEmail.requestFocus()
@@ -44,10 +44,10 @@ class FormRecuperar : AppCompatActivity() {
                     }.addOnFailureListener { exception ->
                         val mensagemErro = when (exception) {
                             is FirebaseAuthInvalidCredentialsException -> "E-mail ou senha incorretos."
-                            else -> "Ocorreu um erro ao enviar o e-mail:\n\n ".plus(exception)
+                            else -> getString(R.string.recuperar_erro).plus("\n\n ".plus(exception))
                         }
                         val dialogo = AlertDialog.Builder(this)
-                        dialogo.setTitle("Recuperação de senha")
+                        dialogo.setTitle(getString(R.string.recuperar_senha))
                         dialogo.setMessage(mensagemErro)
                         dialogo.setNeutralButton("OK") { dialog, which ->
                             binding.editEmail.text = null

@@ -11,6 +11,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.FirebaseAuthUserCollisionException
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException
+import com.google.firebase.auth.ktx.userProfileChangeRequest
 import com.google.firebase.firestore.FirebaseFirestore
 
 class FormCadastro : AppCompatActivity() {
@@ -37,16 +38,15 @@ class FormCadastro : AppCompatActivity() {
                 auth.createUserWithEmailAndPassword(email, senha).addOnCompleteListener {cadastro ->
                     if (cadastro.isSuccessful) {
 
-                        val usuarioMap = hashMapOf(
-                            "nome" to nome
-                        )
+                        val user = auth.currentUser
 
-                        db.collection("0").document(FirebaseAuth.getInstance().uid.toString())
-                            .set(usuarioMap).addOnSuccessListener {
-                                Log.d("db", "Dados gravados com sucesso!")
-                            }.addOnFailureListener {
-                                Log.d("db", "Erro ao gravar dados!".plus(it))
-                            }
+                        val profileUpdates = userProfileChangeRequest {
+                            displayName = nome
+                        }
+
+                        user!!.updateProfile(profileUpdates).addOnFailureListener() {erro ->
+                            Log.e("Erro", erro.toString())
+                        }
 
                         finish()
                     }

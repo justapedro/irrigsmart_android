@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">IrrigSmart</string>
     <string name="recuperar_senha">Recuperar senha</string>
+    <string name="nome_planta">Planta</string>
     <string name="titulo_form_cadastro">Cadastre-se</string>
     <string name="titulo_form_login">Fazer Login</string>
     <string name="titulo_form_recuperar">Recuperar Senha</string>
@@ -13,4 +14,16 @@
     <string name="btn_entrar">Entrar</string>
     <string name="texto_alt_cadastro">Ainda não tem uma conta? Cadastre-se</string>
     <string name="botao_deslogar">Deslogar</string>
+    <string name="umidade">Umidade</string>
+    <string name="reservatorio">Reservatório</string>
+    <string name="reservatorio_cheio">Cheio</string>
+    <string name="reservatorio_vazio">Vazio</string>
+    <string name="preencha_campo">Preencha o campo!</string>
+    <string name="recuperar_enviado">E-mail enviado com sucesso!</string>
+    <string name="recuperar_erro">Ocorreu um erro ao enviar o e-mail!</string>
+    <string name="erro">Ocorreu um erro</string>
+    <string name="erro_ao_ler_dados">Não foi possível realizar a leitura dos dados do banco de dados.</string>
+    <string name="bem_vindo">"Olá, "</string>
+    <string name="titulohome">"Suas Plantas"</string>
+    <string name="conta_titulo">Minha Conta</string>
 </resources>
