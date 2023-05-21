@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.core.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".view.formcadastro.FormCadastro">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="8dp"
+            android:text="@string/titulo_form_recuperar"
+            android:textStyle="bold"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="8dp"
+            android:text="@string/desc_form_recuperar"
+            android:textSize="18sp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:hint="@string/hint_email"
+            android:inputType="textEmailAddress"
+            android:textColorHint="@color/black"
+            android:textColor="@color/black"
+            android:background="@drawable/round_bg"
+            android:padding="15dp"
+            android:maxLines="1"
+            android:textSize="20sp"
+            android:id="@+id/edit_email" />
+
+        <Button
+            android:id="@+id/btnrecuperar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/btn_recuperar"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:background="@color/purple_500"
+            android:padding="10dp"
+            android:textSize="20sp" />
+
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>
