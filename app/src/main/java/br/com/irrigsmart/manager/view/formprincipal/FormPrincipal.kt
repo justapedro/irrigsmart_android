@@ -10,6 +10,9 @@ import br.com.irrigsmart.manager.view.conta.FormConta
 import br.com.irrigsmart.manager.view.formlogin.FormLogin
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import java.text.SimpleDateFormat
+import java.time.format.DateTimeFormatter
+import java.util.*
 
 class FormPrincipal : AppCompatActivity() {
 
@@ -48,6 +51,9 @@ class FormPrincipal : AppCompatActivity() {
                 if (documento != null && documento.exists()) {
                     binding.progressBarUmidade.progress = documento.getLong("umidade")!!.toInt()
                     binding.textViewProgressUmidade.text = documento.getLong("umidade").toString().plus("%")
+                    val timestamp = documento.getTimestamp("dataleitura")
+                    val formatter = SimpleDateFormat("dd/MM/yyyy HH:mm:ss")
+                    binding.textViewData.text = "Atualizado em ".plus(formatter.format(timestamp?.toDate()))
                     val cheio = documento.getLong("reservatorio")!!.toInt() > 300
                     binding.progressBarReservatorio.progress = if (cheio) 100 else 10
                     binding.textViewProgressReservatorio.text = if (cheio) getString(R.string.reservatorio_cheio) else getString(R.string.reservatorio_vazio)
