@@ -29,12 +29,21 @@ class FormPrincipal : AppCompatActivity() {
         user?.let {
             // Name, email address, and profile photo Url
             val name = it.displayName
-            val email = it.email
             val photoUrl = it.photoUrl
-            val emailVerified = it.isEmailVerified
-            val uid = it.uid
-            binding.textodados.text = getString(R.string.bem_vindo).plus(name.plus("!"))
 
+            if (name != null) {
+                //binding.textodados.text = getString(R.string.bem_vindo).plus(name.plus("!"))
+            }
+            else {
+                //binding.textodados.text = getString(R.string.bem_vindo).plus(getString(R.string.usuario).plus("!"))
+            }
+
+            if (photoUrl != null) {
+                binding.imageViewConta.setImageURI(photoUrl)
+            }
+            else {
+                binding.imageViewConta.setImageResource(R.drawable.account_circle)
+            }
         }
 
         // Obter dados do banco de dados
@@ -49,19 +58,19 @@ class FormPrincipal : AppCompatActivity() {
                     .show()
             } else {
                 if (documento != null && documento.exists()) {
-                    binding.progressBarUmidade.progress = documento.getLong("umidade")!!.toInt()
-                    binding.textViewProgressUmidade.text = documento.getLong("umidade").toString().plus("%")
+                    //binding.progressBarUmidade.progress = documento.getLong("umidade")!!.toInt()
+                    binding.textViewUmidade.text = documento.getLong("umidade").toString().plus("%")
                     val timestamp = documento.getTimestamp("dataleitura")
                     val formatter = SimpleDateFormat("dd/MM/yyyy HH:mm:ss")
                     binding.textViewData.text = "Atualizado em ".plus(formatter.format(timestamp?.toDate()))
                     val cheio = documento.getLong("reservatorio")!!.toInt() > 300
-                    binding.progressBarReservatorio.progress = if (cheio) 100 else 10
-                    binding.textViewProgressReservatorio.text = if (cheio) getString(R.string.reservatorio_cheio) else getString(R.string.reservatorio_vazio)
+                    //binding.progressBarReservatorio.progress = if (cheio) 100 else 10
+                    binding.textViewReservatorio.text = if (cheio) getString(R.string.reservatorio_cheio) else getString(R.string.reservatorio_vazio)
                 }
             }
         }
 
-        binding.imageaccount.setOnClickListener() {
+        binding.imageViewConta.setOnClickListener() {
             val intent = Intent(this, FormConta::class.java)
             startActivity(intent)
         }

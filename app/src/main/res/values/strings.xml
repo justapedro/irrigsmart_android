@@ -13,7 +13,6 @@
     <string name="btn_recuperar">Recuperar</string>
     <string name="btn_entrar">Entrar</string>
     <string name="texto_alt_cadastro">Ainda não tem uma conta? Cadastre-se</string>
-    <string name="botao_deslogar">Deslogar</string>
     <string name="umidade">Umidade</string>
     <string name="reservatorio">Reservatório</string>
     <string name="reservatorio_cheio">Cheio</string>
@@ -24,6 +23,15 @@
     <string name="erro">Ocorreu um erro</string>
     <string name="erro_ao_ler_dados">Não foi possível realizar a leitura dos dados do banco de dados.</string>
     <string name="bem_vindo">"Olá, "</string>
+    <string name="usuario">"Usuário"</string>
     <string name="titulohome">"Suas Plantas"</string>
+
+
     <string name="conta_titulo">Minha Conta</string>
+    <string name="alterarEmail">Alterar Email</string>
+    <string name="alterarSenha">Alterar Senha</string>
+    <string name="excluirConta">Excluir Conta</string>
+    <string name="botao_deslogar">Deslogar</string>
+
+
 </resources>
