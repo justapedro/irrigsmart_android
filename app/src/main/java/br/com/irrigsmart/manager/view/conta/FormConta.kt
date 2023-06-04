@@ -56,7 +56,10 @@ class FormConta : AppCompatActivity() {
             finish()
         }
 
-        binding.btndeslogar.setOnClickListener {
+        binding.linearAlterarSenha.setOnClickListener {
+
+        }
+        binding.linearSair.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
             val intent = Intent(this, FormLogin::class.java)
             startActivity(intent)

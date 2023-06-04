@@ -31,7 +31,7 @@
     <string name="alterarEmail">Alterar Email</string>
     <string name="alterarSenha">Alterar Senha</string>
     <string name="excluirConta">Excluir Conta</string>
-    <string name="botao_deslogar">Deslogar</string>
+    <string name="deslogar">Sair</string>
 
 
 </resources>

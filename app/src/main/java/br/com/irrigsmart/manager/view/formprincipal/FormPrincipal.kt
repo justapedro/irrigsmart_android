@@ -4,10 +4,12 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
+import androidx.core.content.res.ResourcesCompat
 import br.com.irrigsmart.manager.R
 import br.com.irrigsmart.manager.databinding.ActivityFormPrincipalBinding
 import br.com.irrigsmart.manager.view.conta.FormConta
 import br.com.irrigsmart.manager.view.formlogin.FormLogin
+import br.com.irrigsmart.manager.view.planta.FormPlanta
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import java.text.SimpleDateFormat
@@ -58,22 +60,30 @@ class FormPrincipal : AppCompatActivity() {
                     .show()
             } else {
                 if (documento != null && documento.exists()) {
-                    //binding.progressBarUmidade.progress = documento.getLong("umidade")!!.toInt()
                     binding.textViewUmidade.text = documento.getLong("umidade").toString().plus("%")
+                    binding.imageviewUmidade.setImageDrawable(if (documento.getLong("umidade")!! <= 30) ResourcesCompat.getDrawable(resources, R.drawable.humidity_low_48px, null) else if (documento.getLong("umidade")!! >= 60) ResourcesCompat.getDrawable(resources, R.drawable.humidity_high_48px, null) else ResourcesCompat.getDrawable(resources, R.drawable.humidity_mid_48px, null))
+                    binding.textViewReservatorio.text = if (documento.getLong("reservatorio")!!.toInt() == 1) getString(R.string.reservatorio_cheio) else getString(R.string.reservatorio_vazio)
+                    binding.imageViewReservatorio.setImageDrawable(if (documento.getLong("reservatorio")!!.toInt() == 1) ResourcesCompat.getDrawable(resources, R.drawable.water_full, null) else ResourcesCompat.getDrawable(resources, R.drawable.water_loss, null))
+
                     val timestamp = documento.getTimestamp("dataleitura")
                     val formatter = SimpleDateFormat("dd/MM/yyyy HH:mm:ss")
                     binding.textViewData.text = "Atualizado em ".plus(formatter.format(timestamp?.toDate()))
-                    val cheio = documento.getLong("reservatorio")!!.toInt() > 300
-                    //binding.progressBarReservatorio.progress = if (cheio) 100 else 10
-                    binding.textViewReservatorio.text = if (cheio) getString(R.string.reservatorio_cheio) else getString(R.string.reservatorio_vazio)
                 }
             }
         }
 
+        //Abrir página de conta
         binding.imageViewConta.setOnClickListener() {
             val intent = Intent(this, FormConta::class.java)
             startActivity(intent)
         }
+
+        //Abrir página de planta
+        binding.linear14.setOnClickListener() {
+            val intent = Intent(this, FormPlanta::class.java)
+            startActivity(intent)
+        }
+
 
     }
 
